@@ -25,11 +25,12 @@ SECRET_KEY = '9d(0nt_8h)83wq41$8=*6o4g%zfhw%c%0&ob*rop@mvs4q9$lq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['marcelomata.info']
+ALLOWED_HOSTS = ['127.0.0.1', 'marcelomata.info']
 
 
 # Application definition
 
+# noinspection PyPackageRequirements
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'psApp',
 ]
 
 MIDDLEWARE = [
@@ -75,12 +78,8 @@ WSGI_APPLICATION = 'PersonalSite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'djangopersonalsite',
-	'USER': 'marcelo',
-        'PASSWORD': 'Vegan4lyfe91!',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
